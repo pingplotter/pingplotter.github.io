@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pingplotter.github.io/sitemap.xml
