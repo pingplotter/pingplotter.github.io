@@ -1,0 +1,144 @@
+:root {
+    --main-color: #0d6cfd; /* Slightly changed from #0d6efd */
+    --main-font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --main-font-size: 1.02rem; /* +2% */
+    --h1-font-size: 2.55rem; /* +2% */
+    --h2-font-size: 2.04rem; /* +2% */
+    --h3-font-size: 1.785rem; /* +2% */
+}
+
+body {
+    font-family: var(--main-font-family);
+    font-size: var(--main-font-size);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+h1, .h1 {
+    font-size: var(--h1-font-size);
+}
+
+h2, .h2 {
+    font-size: var(--h2-font-size);
+}
+
+h3, .h3 {
+    font-size: var(--h3-font-size);
+}
+
+p {
+    font-size: var(--main-font-size);
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--main-color);
+    --bs-btn-border-color: var(--main-color);
+    --bs-btn-hover-bg: #0b5ed7;
+    --bs-btn-hover-border-color: #0a58ca;
+}
+
+.text-primary {
+    color: var(--main-color) !important;
+}
+
+header.masthead:before {
+    background-color: var(--main-color);
+}
+
+.footer-dark {
+    padding: 50px 0;
+    color: #f0f9ff;
+    background-color: #2a2f34; /* Slightly changed from #282d32 */
+}
+
+.footer-dark .copyright {
+    text-align: center;
+    padding-top: 24px;
+    opacity: 0.3;
+    font-size: 13px;
+    margin-bottom: 0;
+}
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000;
+    border-radius: 50%;
+}
+.navbar {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+.nav-link {
+    color: #495057;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--main-color);
+}
+html, body {
+    overflow-x: hidden;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--main-color) !important;
+}
+.testimonial-item {
+    padding: 30px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+    display: none;
+}
+
+.cookie-banner p {
+    margin: 0;
+    display: inline;
+}
+
+.cookie-banner a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.cookie-banner .btn {
+    margin-left: 15px;
+}
+
+/* Table modifications */
+.table {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+.table-dark {
+    --bs-table-bg: #2a2f34; /* Slightly different dark color */
+    --bs-table-border-color: #454d55;
+}

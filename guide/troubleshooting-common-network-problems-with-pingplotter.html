@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="A practical guide to using PingPlotter for troubleshooting frequent network issues such as Wi-Fi problems, ISP bottlenecks, and server-side lag. Learn how to gather evidence and solve your connection problems." />
+        <meta name="author" content="pingplotter.github.io" />
+        <title>Solving Network Issues with PingPlotter</title>
+        <!-- Open Graph -->
+        <meta property="og:title" content="Troubleshooting Common Network Problems with PingPlotter" />
+        <meta property="og:description" content="This article provides actionable steps for using PingPlotter to diagnose and resolve everyday network headaches, from your local network to the final server." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://pingplotter.github.io/guide/troubleshooting-common-network-problems-with-pingplotter.html" />
+        <meta property="og:image" content="https://pingplotter.github.io/assets/img/guide/3.jpg" />
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../css/custom.css" rel="stylesheet" />
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Troubleshooting Common Network Problems with PingPlotter",
+          "author": {
+            "@type": "Organization",
+            "name": "PingPlotter"
+          },
+          "datePublished": "2025-12-08",
+          "image": "https://pingplotter.github.io/assets/img/guide/3.jpg",
+          "publisher": {
+            "@type": "Organization",
+            "name": "PingPlotter",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://pingplotter.github.io/assets/img/header/logo.svg"
+            }
+          },
+          "description": "A practical guide to using PingPlotter for troubleshooting frequent network issues such as Wi-Fi problems, ISP bottlenecks, and server-side lag. Learn how to gather evidence and solve your connection problems."
+        }
+        </script>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/img/header/logo.svg" alt="PingPlotter Logo" height="30">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../history.html">History</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <!-- Page Content-->
+            <section class="py-5">
+                <div class="container">
+                    <h1 class="mb-4">Troubleshooting Common Network Problems with PingPlotter</h1>
+                    <p>Knowing how to interpret PingPlotter's data is the first step. The next is applying that knowledge to solve real-world network problems. Many users experience similar types of issues, and PingPlotter is exceptionally good at helping to categorize and diagnose them. This guide will cover some of the most common network scenarios—from problems in your own home to issues far out on the internet—and show you how to use PingPlotter to identify the root cause. Armed with this information, you can take targeted action to fix the problem or effectively communicate the issue to those who can.</p>
+                    
+                    <h2>Problem 1: Is It My Wi-Fi?</h2>
+                    <p>Unstable or slow Wi-Fi is one of the most frequent sources of network frustration. Symptoms include intermittent connection drops, slow speeds, and high latency that seems to come and go. PingPlotter can help you determine if your wireless connection is the culprit. To do this, you need to test the connection between your computer and your router. First, find your router's IP address, which is also your "default gateway." You can find this by opening the Command Prompt on Windows and typing `ipconfig`. Look for the "Default Gateway" address (it's often something like 192.168.1.1 or 10.0.0.1).</p>
+                    <p>Enter this IP address as the target in PingPlotter and start a trace. This trace will have only one or two hops. You are now monitoring the connection between your computer and your router. Let this run for at least 10-15 minutes, and go about your normal activities. If you see high latency spikes or packet loss on this very short path, it's a strong indication that your Wi-Fi is the problem. The issue could be signal interference from other devices (like microwaves or cordless phones), distance from the router, or physical obstructions like walls. Try moving closer to your router or switching to a different Wi-Fi channel. For the most stable connection, especially for gaming or important video calls, switching to a wired Ethernet connection is the best solution. If you still see issues on a wired connection to your router, the problem might be the router itself.</p>
+
+                    <h2>Problem 2: The ISP Bottleneck</h2>
+                    <p>Often, network problems lie outside of your home, within your Internet Service Provider's (ISP) network. These issues can manifest as slow speeds during peak hours (evenings and weekends), consistently high latency to all destinations, or packet loss that appears a few hops into your trace route. To diagnose this, start a trace to a reliable, major server like `google.com` or `cloudflare.com` (1.1.1.1). Let the trace run, particularly during the times you notice the problem.</p>
+                    <p>Examine the trace results in PingPlotter. If the first few hops (your local network) show low latency and no packet loss, but you see a sudden, sustained increase in latency or the start of packet loss at a hop further down the line, you've likely found an issue in your ISP's network. Look for the name of the router in the "Name" column; it will often contain the ISP's name (e.g., `be-123-xyz.chicago.comcast.net`). When you see a pattern of poor performance starting at a specific hop within your ISP's infrastructure and continuing to the final destination, you have strong evidence of an ISP-related problem. Save the PingPlotter data (`.pp2` file) and take screenshots. When you contact your ISP's support, this data will be much more effective than simply saying "my internet is slow." You can show them exactly where the problem is occurring in their network. You can start by using <a href="../index.html">PingPlotter</a> and see it for yourself.</p>
+
+                    <h2>Problem 3: Server-Side Issues</h2>
+                    <p>Sometimes, your local network and your ISP are performing perfectly, but you still experience problems with a specific application, like a game, a website, or a work VPN. This could indicate an issue with the server you are trying to connect to. PingPlotter is an excellent tool for verifying this. Start a trace to the IP address or hostname of the problematic server. At the same time, run a second trace to a reliable baseline target, like `google.com`.</p>
+                    <p>Let both traces run for a while and then compare the results. If the trace to `google.com` looks clean, with low latency and no packet loss, but the trace to your specific game server or website shows high latency or packet loss at the *final* hop, then the problem is very likely on the server's end. The issue might be that the server is overloaded, undergoing maintenance, or having its own network problems. In this scenario, there isn't much you can do directly to fix it. However, you can use your PingPlotter data to report the issue to the service provider (the game developer, website administrator, or your company's IT department). By showing them that your connection is fine to other parts of the internet but poor to their server, you provide clear evidence that the problem is on their side, which can help them resolve it faster.</p>
+                    <img src="../assets/img/guide/3.jpg" class="img-fluid" alt="Troubleshooting with PingPlotter">
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="footer-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-4 text-center text-md-start">
+                        <a href="../privacypolicy.html" class="text-light">Privacy Policy</a>
+                    </div>
+                    <div class="col-12 col-md-4 text-center">
+                        <a href="mailto:support@pingplotter.github.io" class="text-light">support@pingplotter.github.io</a>
+                    </div>
+                    <div class="col-12 col-md-4 text-center text-md-end">
+                        <a href="https://twitter.com/pingplotter" class="text-light me-3"><i class="bi-twitter fs-4"></i></a>
+                        <a href="https://www.instagram.com/pingplotter/" class="text-light"><i class="bi-instagram fs-4"></i></a>
+                    </div>
+                </div>
+                <p class="copyright">PingPlotter © 2025</p>
+            </div>
+        </footer>
+        <!-- Cookie Banner -->
+        <div id="cookie-banner" class="cookie-banner">
+            <p>We use cookies to ensure you get the best experience on our website. <a href="../privacypolicy.html">Learn more</a></p>
+            <button id="accept-cookies" class="btn btn-primary">Accept</button>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+    </body>
+</html>

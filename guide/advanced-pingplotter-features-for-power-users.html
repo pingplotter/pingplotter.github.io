@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Unlock the full potential of PingPlotter with this guide to its advanced features. Learn about multi-target tracing, custom alerts, jitter graphs, and exporting data for in-depth analysis." />
+        <meta name="author" content="pingplotter.github.io" />
+        <title>Exploring Advanced PingPlotter Capabilities</title>
+        <!-- Open Graph -->
+        <meta property="og:title" content="Advanced PingPlotter Features for Power Users" />
+        <meta property="og:description" content="Take your network troubleshooting to the next level. This article explores the powerful, advanced features that make PingPlotter an essential tool for IT professionals." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://pingplotter.github.io/guide/advanced-pingplotter-features-for-power-users.html" />
+        <meta property="og:image" content="https://pingplotter.github.io/assets/img/guide/4.jpg" />
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../css/custom.css" rel="stylesheet" />
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Advanced PingPlotter Features for Power Users",
+          "author": {
+            "@type": "Organization",
+            "name": "PingPlotter"
+          },
+          "datePublished": "2025-12-08",
+          "image": "https://pingplotter.github.io/assets/img/guide/4.jpg",
+          "publisher": {
+            "@type": "Organization",
+            "name": "PingPlotter",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://pingplotter.github.io/assets/img/header/logo.svg"
+            }
+          },
+          "description": "Unlock the full potential of PingPlotter with this guide to its advanced features. Learn about multi-target tracing, custom alerts, jitter graphs, and exporting data for in-depth analysis."
+        }
+        </script>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/img/header/logo.svg" alt="PingPlotter Logo" height="30">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../history.html">History</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <!-- Page Content-->
+            <section class="py-5">
+                <div class="container">
+                    <h1 class="mb-4">Advanced PingPlotter Features for Power Users</h1>
+                    <p>While PingPlotter's core functionality is designed to be intuitive for everyone, it also contains a suite of advanced features that cater to the needs of IT professionals, network administrators, and serious enthusiasts. These tools allow for more sophisticated monitoring, deeper analysis, and proactive problem-solving. This guide will delve into some of PingPlotter's more powerful capabilities, including monitoring multiple targets, setting up custom alerts, analyzing jitter, and leveraging different packet types. Mastering these features will elevate your troubleshooting game, enabling you to manage complex network environments and diagnose subtle issues with precision.</p>
+                    
+                    <h2>Monitoring Multiple Targets Simultaneously</h2>
+                    <p>In many scenarios, you need to monitor more than one destination at a time. For example, a network administrator might need to keep an eye on the connectivity to several critical servers, or a remote worker might want to monitor both their company's VPN and a cloud service they rely on. PingPlotter Pro allows you to run multiple trace sessions concurrently in a tabbed or tiled interface. This is incredibly useful for comparative analysis. By tracing to a known stable target (like google.com) and a problematic target simultaneously, you can quickly determine if an issue is widespread (affecting both traces) or isolated to a specific route.</p>
+                    <p>Setting this up is simple. In PingPlotter, you can open a new trace tab for each destination you want to monitor. You can then arrange these tabs to see all your traces at a glance. This multi-target view allows you to spot correlations. For instance, if you see a latency spike across all your targets at the exact same time, and it starts at the same hop in each trace, you've found a common point of failure, very likely within your own network or your ISP's. This capability moves PingPlotter from a single-route diagnostic tool to a comprehensive network monitoring dashboard. To test this yourself, you can start with a <a href="../index.html">download PingPlotter</a> and run traces to a few of your favorite websites.</p>
+
+                    <h2>Automated Alerts for Proactive Monitoring</h2>
+                    <p>Waiting for a user to report a problem is a reactive approach. Power users and IT professionals prefer to be proactive, identifying and addressing issues before they impact end-users. PingPlotter's alerting system is designed for this purpose. You can configure alerts to trigger based on specific network conditions. For example, you can set an alert to notify you if the packet loss to a critical server exceeds 5% for more than 30 seconds, or if the latency to your VoIP provider's gateway spikes above 100ms.</p>
+                    <p>Alerts can be configured to perform a variety of actions. You can have PingPlotter log the event to a file, send an email notification, play a sound, or even execute a script. This level of automation is invaluable for unattended monitoring of network infrastructure. For instance, you could set up an alert that sends an email to your IT team the moment a connection issue is detected, complete with a snapshot of the PingPlotter data. This allows for immediate investigation and can significantly reduce downtime and the impact of network-related outages. Setting up alerts transforms PingPlotter from a manual troubleshooting tool into a 24/7 network watchdog.</p>
+
+                    <h2>Jitter Graphs and Packet Types for VoIP Analysis</h2>
+                    <p>For real-time applications like Voice over IP (VoIP) and video conferencing, consistent latency is just as important as low latency. The variation in latency from packet to packet is known as "jitter." High jitter can cause distorted audio, with words being garbled or out of order. PingPlotter can measure and graph jitter, providing a critical metric for diagnosing the quality of real-time connections. The jitter graph shows you how much the latency is fluctuating. A spiky jitter graph, even with a low average latency, can indicate a connection that is unsuitable for VoIP.</p>
+                    <p>Furthermore, PingPlotter allows you to change the type of packets used for tracing. The default ICMP packets are great for general-purpose tracing, but they are sometimes blocked or deprioritized by routers. For troubleshooting services like VoIP or certain games, it's more accurate to use UDP or TCP packets, as this more closely simulates the traffic of the actual application. By tracing to a VoIP server using UDP packets and analyzing the jitter graph, you can get a much more accurate assessment of your call quality than with a standard ping test. This advanced capability is essential for anyone who relies on real-time communication technologies.</p>
+                    <img src="../assets/img/guide/4.jpg" class="img-fluid" alt="Advanced PingPlotter Features">
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="footer-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-4 text-center text-md-start">
+                        <a href="../privacypolicy.html" class="text-light">Privacy Policy</a>
+                    </div>
+                    <div class="col-12 col-md-4 text-center">
+                        <a href="mailto:support@pingplotter.github.io" class="text-light">support@pingplotter.github.io</a>
+                    </div>
+                    <div class="col-12 col-md-4 text-center text-md-end">
+                        <a href="https://twitter.com/pingplotter" class="text-light me-3"><i class="bi-twitter fs-4"></i></a>
+                        <a href="https://www.instagram.com/pingplotter/" class="text-light"><i class="bi-instagram fs-4"></i></a>
+                    </div>
+                </div>
+                <p class="copyright">PingPlotter © 2025</p>
+            </div>
+        </footer>
+        <!-- Cookie Banner -->
+        <div id="cookie-banner" class="cookie-banner">
+            <p>We use cookies to ensure you get the best experience on our website. <a href="../privacypolicy.html">Learn more</a></p>
+            <button id="accept-cookies" class="btn btn-primary">Accept</button>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+    </body>
+</html>

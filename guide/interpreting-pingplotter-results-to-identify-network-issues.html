@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Learn how to read and interpret the graphs and data in PingPlotter to diagnose common network problems like latency, packet loss, and jitter. This guide will help you pinpoint the source of your connection issues." />
+        <meta name="author" content="pingplotter.github.io" />
+        <title>Understanding PingPlotter Results: A Deep Dive</title>
+        <!-- Open Graph -->
+        <meta property="og:title" content="Interpreting PingPlotter Results to Identify Network Issues" />
+        <meta property="og:description" content="This guide breaks down how to analyze PingPlotter's visual data, enabling you to effectively troubleshoot your network and communicate issues to your ISP." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://pingplotter.github.io/guide/interpreting-pingplotter-results-to-identify-network-issues.html" />
+        <meta property="og:image" content="https://pingplotter.github.io/assets/img/guide/2.jpg" />
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../css/custom.css" rel="stylesheet" />
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Interpreting PingPlotter Results to Identify Network Issues",
+          "author": {
+            "@type": "Organization",
+            "name": "PingPlotter"
+          },
+          "datePublished": "2025-12-08",
+          "image": "https://pingplotter.github.io/assets/img/guide/2.jpg",
+          "publisher": {
+            "@type": "Organization",
+            "name": "PingPlotter",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://pingplotter.github.io/assets/img/header/logo.svg"
+            }
+          },
+          "description": "Learn how to read and interpret the graphs and data in PingPlotter to diagnose common network problems like latency, packet loss, and jitter. This guide will help you pinpoint the source of your connection issues."
+        }
+        </script>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/img/header/logo.svg" alt="PingPlotter Logo" height="30">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../history.html">History</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <!-- Page Content-->
+            <section class="py-5">
+                <div class="container">
+                    <h1 class="mb-4">Interpreting PingPlotter Results to Identify Network Issues</h1>
+                    <p>So, you've downloaded and installed PingPlotter, and you have a trace running. You're looking at a screen full of graphs and numbers, which can be intimidating at first. However, understanding this data is the key to unlocking the power of PingPlotter and diagnosing your network problems. This guide will teach you how to interpret the results, identify common issues like high latency and packet loss, and pinpoint exactly where the problem lies in your connection's path. With this knowledge, you can take informed steps to resolve your network woes or provide concrete evidence to your Internet Service Provider (ISP).</p>
+                    
+                    <h2>Understanding the PingPlotter Interface</h2>
+                    <p>The main PingPlotter window is divided into a few key areas. At the top, you have the trace grid, which lists all the "hops" your data takes to get from your computer to the target destination. Each hop represents a router or server along the path. For each hop, you'll see columns for packet loss (PL%), average latency (Avg), and other metrics. Below the grid, you'll find the timeline graphs. These graphs are the heart of PingPlotter, visualizing the performance of each hop over time. The horizontal axis represents time, while the vertical axis shows latency in milliseconds. A black line plots the latency of each packet, while red lines or bars indicate packet loss.</p>
+                    <p>The final hop in the list is your ultimate destination. The performance at this final hop is what you actually experience. Problems at intermediate hops can affect the final result, but it's the performance at the end of the line that truly matters. A key principle to remember is to read the data from top to bottom. Start by analyzing the first few hops (your local network), then move to the middle hops (your ISP), and finally, examine the last few hops (the target's network). This systematic approach helps you isolate where the problem originates. A great first step in learning is to try a <a href="../index.html">download PingPlotter</a> and start tracing to a familiar site like google.com.</p>
+
+                    <h2>Identifying High Latency</h2>
+                    <p>Latency, often referred to as "ping," is the time it takes for a data packet to travel from your computer to a server and back. In PingPlotter, this is visualized by the black line on the timeline graphs. A low and stable latency line is ideal. High latency, which appears as spikes or a consistently elevated line on the graph, is a common cause of lag in online games, buffering in video streams, and general sluggishness in web browsing. When you see high latency, the first step is to determine where it starts. Look at the trace grid and timeline graphs from top to bottom. If the high latency begins at the very first hop, the problem is likely within your own local network. This could be due to a faulty router, a bad ethernet cable, or Wi-Fi interference.</p>
+                    <p>If the latency is low and stable for the first few hops and then suddenly jumps at a specific hop in the middle of the route, the issue is likely with that router or the network segment it belongs to. This is often within your ISP's network. If you see latency increase at a hop and remain high for all subsequent hops, that indicates that the delay was introduced at that point and is carried through the rest of the path. This is a classic sign of a bottleneck. By identifying the specific hop where latency increases, you can provide your ISP with the exact location of the problem, which makes troubleshooting much more effective for them.</p>
+
+                    <h2>Diagnosing Packet Loss</h2>
+                    <p>Packet loss occurs when data packets sent over the network fail to reach their destination. In PingPlotter, packet loss is highlighted in red on the timeline graphs. Any amount of packet loss can have a significant impact on performance, especially for real-time applications like gaming or VoIP. A small amount of packet loss (1-2%) might cause minor glitches, while higher levels can make applications unusable. The most important place to look for packet loss is at the final hop. If you see red on the timeline for your target destination, you are experiencing real packet loss that is affecting your connection.</p>
+                    <p>Now, you need to find the source. As with latency, work your way down from the first hop. If packet loss starts at an intermediate hop and continues all the way to the final destination, that intermediate hop is the likely culprit. This is valuable information to share with your ISP. However, it's important to note a common false positive. Sometimes, an intermediate router will show 100% packet loss, but subsequent hops show 0%. This is usually not a problem. It simply means that the router is configured to deprioritize or ignore the types of packets PingPlotter uses for tracing. As long as the packet loss does not persist down to the final hop, you can generally ignore it. The key is to focus on packet loss that appears at an intermediate hop and is also present at the final destination.</p>
+                    <img src="../assets/img/guide/2.jpg" class="img-fluid" alt="Interpreting PingPlotter Graphs">
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="footer-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-4 text-center text-md-start">
+                        <a href="../privacypolicy.html" class="text-light">Privacy Policy</a>
+                    </div>
+                    <div class="col-12 col-md-4 text-center">
+                        <a href="mailto:support@pingplotter.github.io" class="text-light">support@pingplotter.github.io</a>
+                    </div>
+                    <div class="col-12 col-md-4 text-center text-md-end">
+                        <a href="https://twitter.com/pingplotter" class="text-light me-3"><i class="bi-twitter fs-4"></i></a>
+                        <a href="https://www.instagram.com/pingplotter/" class="text-light"><i class="bi-instagram fs-4"></i></a>
+                    </div>
+                </div>
+                <p class="copyright">PingPlotter © 2025</p>
+            </div>
+        </footer>
+        <!-- Cookie Banner -->
+        <div id="cookie-banner" class="cookie-banner">
+            <p>We use cookies to ensure you get the best experience on our website. <a href="../privacypolicy.html">Learn more</a></p>
+            <button id="accept-cookies" class="btn btn-primary">Accept</button>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+    </body>
+</html>
